@@ -38,9 +38,11 @@ RUN git clone --branch ${LIBREALSENSE_VERSION} --depth=1 https://github.com/Inte
     mkdir build && \
     cd build && \
     cmake \
-        -DBUILD_EXAMPLES=true \
+       -DBUILD_EXAMPLES=true \
 	   -DFORCE_RSUSB_BACKEND=true \
 	   -DBUILD_WITH_CUDA=true \
+       -DCUDA_HOME=/usr/local/cuda \
+       -DCUDACXX = /usr/local/cuda/bin/nvcc \
 	   -DCMAKE_BUILD_TYPE=release \
 	   -DBUILD_PYTHON_BINDINGS=bool:true \
 	   -DPYTHON_EXECUTABLE=/usr/bin/python3 \
