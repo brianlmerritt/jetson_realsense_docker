@@ -51,8 +51,8 @@ RUN git clone --branch ${LIBREALSENSE_VERSION} --depth=1 https://github.com/Inte
     make -j$(($(nproc)-1)) && \
     sudo make install && \
     cd ../ && \
-    cp ./config/99-realsense-libusb.rules /etc/udev/rules.d/ && \
-    rm -rf librealsense
+    sudo cp ./config/99-realsense-libusb.rules /etc/udev/rules.d/ && \
+    sudo rm -rf librealsense
 
 # Test that the install worked
 RUN python3 -c 'import pyrealsense2'
